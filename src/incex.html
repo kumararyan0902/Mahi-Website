@@ -115,6 +115,10 @@
           height: 90px;
         }
       }
+
+      .logo-invert {
+        filter: invert(1) !important;
+      }
     </style>
   </head>
 
@@ -130,8 +134,9 @@
             <a href="#hero" class="btn btn-ghost text-lg md:text-2xl">
               <!-- hidden in mobile with hidden class -->
               <img
-                src="/resources/icons/apple-touch-icon.png"
-                class="w-8 h-8 rounded-lg hidden md:inline"
+                src="/resources/icons/Navbar.svg"
+                class="w-10 h-10 hidden md:inline"
+                id="navbar-logo"
                 alt="logo"
               />
               <!-- <p class="inline md:hidden">🌱</p> -->
@@ -472,10 +477,10 @@
         >
           <aside>
             <img
-              src="/resources/icons/apple-touch-icon.png"
-              width="50"
-              height="50"
-              alt="Mahi Enterprises Logo"
+              src="/resources/icons/Navbar.svg"
+              class="w-20 h-20 hidden md:inline"
+              id="footer-logo"
+              alt="logo"
             />
             <p>
               Mahi Enterprises.
@@ -569,6 +574,32 @@
         requestAnimationFrame(raf);
       }
       requestAnimationFrame(raf);
+    </script>
+
+    <!-- AI script for changing the logo -->
+    <!-- nav-bar logo -->
+    <script>
+      const logo = document.getElementById("navbar-logo");
+      const toggle = document.querySelector(".theme-controller");
+
+      function updateLogo() {
+        logo.classList.toggle("invert", toggle.checked);
+      }
+
+      updateLogo(); // runs on page load
+      toggle.addEventListener("change", updateLogo);
+    </script>
+    <!-- footer -->
+    <script>
+      const logo2 = document.getElementById("footer-logo");
+      const toggle2 = document.querySelector(".theme-controller");
+
+      function updateLogo() {
+        logo2.classList.toggle("invert", toggle2.checked);
+      }
+
+      updateLogo(); // runs on page load
+      toggle2.addEventListener("change", updateLogo);
     </script>
   </body>
 </html>
